@@ -18,7 +18,12 @@ const ChildScreen = ({
 }: {
   navigation: NavigationProp<NavigationParams>;
 }) => (
-  <Pressable onPress={goBack}>
+  <Pressable
+    onPress={() =>
+      requestAnimationFrame(() => {
+        goBack();
+      })
+    }>
     <Text>Close</Text>
   </Pressable>
 );
